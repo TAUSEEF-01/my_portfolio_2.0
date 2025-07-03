@@ -1,17 +1,35 @@
 import { Button } from "@/components/ui/button"
+import { SparklesCore } from "@/components/ui/sparkles"
 import { ArrowDown, Download } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
 export function Hero() {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center pt-16">
-      <div className="container mx-auto px-4">
+    <section id="home" className="min-h-screen flex items-center justify-center pt-16 relative overflow-hidden">
+      {/* Sparkles Background */}
+      <div className="absolute inset-0 w-full h-full">
+        <SparklesCore
+          id="tsparticlesfullpage"
+          background="transparent"
+          minSize={0.6}
+          maxSize={1.4}
+          particleDensity={100}
+          className="w-full h-full"
+          particleColor="#3b82f6"
+          speed={0.5}
+        />
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <div className="space-y-4">
               <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-                Hi, I'm <span className="text-primary">Your Name</span>
+                Hi, I'm{" "}
+                <span className="text-primary bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600">
+                  Your Name
+                </span>
               </h1>
               <h2 className="text-2xl md:text-3xl text-muted-foreground">Front-End Developer</h2>
               <p className="text-lg text-muted-foreground max-w-lg">
@@ -38,7 +56,7 @@ export function Hero() {
 
           <div className="flex justify-center lg:justify-end">
             <div className="relative">
-              <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-primary/20">
+              <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-primary/20 backdrop-blur-sm bg-background/10">
                 <Image
                   src="/placeholder.svg?height=320&width=320"
                   alt="Your Name - Professional Headshot"
@@ -47,11 +65,14 @@ export function Hero() {
                   className="object-cover w-full h-full"
                 />
               </div>
-              <div className="absolute -z-10 top-4 left-4 w-80 h-80 rounded-full bg-primary/10"></div>
+              <div className="absolute -z-10 top-4 left-4 w-80 h-80 rounded-full bg-primary/10 backdrop-blur-sm"></div>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Gradient overlays for better text readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/40 to-background/80 pointer-events-none" />
     </section>
   )
 }
