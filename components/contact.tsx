@@ -1,15 +1,23 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from "lucide-react"
-import Link from "next/link"
-import { useToast } from "@/hooks/use-toast"
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  Github,
+  Linkedin,
+  Twitter,
+} from "lucide-react";
+import Link from "next/link";
+import { useToast } from "@/hooks/use-toast";
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -17,42 +25,44 @@ export function Contact() {
     email: "",
     subject: "",
     message: "",
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const { toast } = useToast()
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+    e.preventDefault();
+    setIsSubmitting(true);
 
     try {
       // Here you would integrate with Supabase or your preferred backend
       // For now, we'll simulate a successful submission
-      await new Promise((resolve) => setTimeout(resolve, 1000))
+      await new Promise((resolve) => setTimeout(resolve, 1000));
 
       toast({
         title: "Message sent!",
         description: "Thank you for your message. I'll get back to you soon.",
-      })
+      });
 
-      setFormData({ name: "", email: "", subject: "", message: "" })
+      setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
       toast({
         title: "Error",
         description: "Something went wrong. Please try again.",
         variant: "destructive",
-      })
+      });
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
-    }))
-  }
+    }));
+  };
 
   return (
     <section id="contact" className="py-20 bg-muted/30">
@@ -74,7 +84,13 @@ export function Contact() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <Input name="name" placeholder="Your Name" value={formData.name} onChange={handleChange} required />
+                    <Input
+                      name="name"
+                      placeholder="Md. Tauseef - Ur - Rahman"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                    />
                   </div>
                   <div>
                     <Input
@@ -88,7 +104,13 @@ export function Contact() {
                   </div>
                 </div>
 
-                <Input name="subject" placeholder="Subject" value={formData.subject} onChange={handleChange} required />
+                <Input
+                  name="subject"
+                  placeholder="Subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  required
+                />
 
                 <Textarea
                   name="message"
@@ -99,7 +121,12 @@ export function Contact() {
                   required
                 />
 
-                <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="w-full"
+                  disabled={isSubmitting}
+                >
                   {isSubmitting ? (
                     "Sending..."
                   ) : (
@@ -117,13 +144,18 @@ export function Contact() {
           <div className="space-y-8">
             <Card>
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-6">Contact Information</h3>
+                <h3 className="text-xl font-semibold mb-6">
+                  Contact Information
+                </h3>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
                     <Mail className="h-5 w-5 text-primary" />
                     <div>
                       <p className="font-medium">Email</p>
-                      <Link href="mailto:your.email@example.com" className="text-muted-foreground hover:text-primary">
+                      <Link
+                        href="mailto:your.email@example.com"
+                        className="text-muted-foreground hover:text-primary"
+                      >
                         your.email@example.com
                       </Link>
                     </div>
@@ -133,7 +165,10 @@ export function Contact() {
                     <Phone className="h-5 w-5 text-primary" />
                     <div>
                       <p className="font-medium">Phone</p>
-                      <Link href="tel:+1234567890" className="text-muted-foreground hover:text-primary">
+                      <Link
+                        href="tel:+1234567890"
+                        className="text-muted-foreground hover:text-primary"
+                      >
                         +1 (234) 567-8900
                       </Link>
                     </div>
@@ -155,17 +190,26 @@ export function Contact() {
                 <h3 className="text-xl font-semibold mb-6">Follow Me</h3>
                 <div className="flex gap-4">
                   <Button variant="outline" size="icon" asChild>
-                    <Link href="https://github.com/yourusername" target="_blank">
+                    <Link
+                      href="https://github.com/yourusername"
+                      target="_blank"
+                    >
                       <Github className="h-4 w-4" />
                     </Link>
                   </Button>
                   <Button variant="outline" size="icon" asChild>
-                    <Link href="https://linkedin.com/in/yourusername" target="_blank">
+                    <Link
+                      href="https://linkedin.com/in/yourusername"
+                      target="_blank"
+                    >
                       <Linkedin className="h-4 w-4" />
                     </Link>
                   </Button>
                   <Button variant="outline" size="icon" asChild>
-                    <Link href="https://twitter.com/yourusername" target="_blank">
+                    <Link
+                      href="https://twitter.com/yourusername"
+                      target="_blank"
+                    >
                       <Twitter className="h-4 w-4" />
                     </Link>
                   </Button>
@@ -177,7 +221,9 @@ export function Contact() {
             <Card>
               <CardContent className="p-0">
                 <div className="w-full h-64 bg-muted rounded-lg flex items-center justify-center">
-                  <p className="text-muted-foreground">Google Maps Integration</p>
+                  <p className="text-muted-foreground">
+                    Google Maps Integration
+                  </p>
                   {/* Replace with actual Google Maps embed */}
                 </div>
               </CardContent>
@@ -186,5 +232,5 @@ export function Contact() {
         </div>
       </div>
     </section>
-  )
+  );
 }

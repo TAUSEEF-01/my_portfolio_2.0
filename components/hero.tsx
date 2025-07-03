@@ -1,12 +1,16 @@
-import { Button } from "@/components/ui/button"
-import { SparklesCore } from "@/components/ui/sparkles"
-import { ArrowDown, Download } from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
+import { Button } from "@/components/ui/button";
+import { SparklesCore } from "@/components/ui/sparkles";
+import { ArrowDown, Download } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import profileImage from "../images/profile_img.jpg"; // Update with your actual image path
 
 export function Hero() {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center pt-16 relative overflow-hidden">
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center pt-16 relative overflow-hidden"
+    >
       {/* Sparkles Background */}
       <div className="absolute inset-0 w-full h-full">
         <SparklesCore
@@ -28,13 +32,15 @@ export function Hero() {
               <h1 className="text-4xl md:text-6xl font-bold leading-tight">
                 Hi, I'm{" "}
                 <span className="text-primary bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600">
-                  Your Name
+                  Md. Tauseef - Ur - Rahman
                 </span>
               </h1>
-              <h2 className="text-2xl md:text-3xl text-muted-foreground">Front-End Developer</h2>
+              {/* <h2 className="text-2xl md:text-3xl text-muted-foreground">
+                Front-End Developer
+              </h2> */}
               <p className="text-lg text-muted-foreground max-w-lg">
-                Creating beautiful, responsive, and user-friendly web experiences with modern technologies and clean
-                code.
+                👨‍💻 Competitive programmer | 💻 Full-stack Developer | 🧠 Passionate about solving complex problems & 🚀 building impactful projects!
+
               </p>
             </div>
 
@@ -58,8 +64,8 @@ export function Hero() {
             <div className="relative">
               <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-primary/20 backdrop-blur-sm bg-background/10">
                 <Image
-                  src="/placeholder.svg?height=320&width=320"
-                  alt="Your Name - Professional Headshot"
+                  src={profileImage}
+                  alt="Md. Tauseef - Ur - Rahman - Professional Headshot"
                   width={320}
                   height={320}
                   className="object-cover w-full h-full"
@@ -74,5 +80,5 @@ export function Hero() {
       {/* Gradient overlays for better text readability */}
       <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/40 to-background/80 pointer-events-none" />
     </section>
-  )
+  );
 }

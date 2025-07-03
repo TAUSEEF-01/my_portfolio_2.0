@@ -49,7 +49,7 @@ export function About() {
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           <div className="space-y-6">
-            <div className="prose prose-lg dark:prose-invert">
+            {/* <div className="prose prose-lg dark:prose-invert">
               <p>
                 With over 5 years of experience in front-end development, I specialize in creating modern, responsive
                 web applications using React, Next.js, and TypeScript. My passion lies in transforming complex problems
@@ -60,7 +60,15 @@ export function About() {
                 coding, you can find me exploring new technologies, contributing to open-source projects, or sharing
                 knowledge with the developer community.
               </p>
+            </div> */}
+
+            <div className="prose prose-lg dark:prose-invert">
+              <p>
+                👨‍💻 Competitive programmer | 💻 Full-stack Developer | 🧠 Passionate about solving complex problems & 🚀 building impactful projects!
+              </p>
+              
             </div>
+
 
             <div className="grid grid-cols-2 gap-4">
               {highlights.map((highlight, index) => (

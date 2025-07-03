@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { ChevronLeft, ChevronRight, Star } from "lucide-react"
-import Image from "next/image"
+import { useState, useEffect } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import Image from "next/image";
 
 export function Testimonials() {
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const testimonials = [
     {
@@ -15,7 +15,7 @@ export function Testimonials() {
       name: "Sarah Johnson",
       role: "Product Manager at TechCorp",
       content:
-        "Working with [Your Name] was an absolute pleasure. They delivered exceptional results on time and exceeded our expectations. Their attention to detail and technical expertise is outstanding.",
+        "Working with [Md. Tauseef - Ur - Rahman] was an absolute pleasure. They delivered exceptional results on time and exceeded our expectations. Their attention to detail and technical expertise is outstanding.",
       avatar: "/placeholder.svg?height=60&width=60",
       rating: 5,
     },
@@ -24,7 +24,7 @@ export function Testimonials() {
       name: "Michael Chen",
       role: "CEO at StartupXYZ",
       content:
-        "The website [Your Name] built for us has significantly improved our online presence. The design is beautiful, the code is clean, and the performance is excellent. Highly recommended!",
+        "The website [Md. Tauseef - Ur - Rahman] built for us has significantly improved our online presence. The design is beautiful, the code is clean, and the performance is excellent. Highly recommended!",
       avatar: "/placeholder.svg?height=60&width=60",
       rating: 5,
     },
@@ -33,7 +33,7 @@ export function Testimonials() {
       name: "Emily Rodriguez",
       role: "Marketing Director at GrowthCo",
       content:
-        "Professional, reliable, and incredibly talented. [Your Name] transformed our vision into a stunning reality. The project was completed ahead of schedule with amazing results.",
+        "Professional, reliable, and incredibly talented. [Md. Tauseef - Ur - Rahman] transformed our vision into a stunning reality. The project was completed ahead of schedule with amazing results.",
       avatar: "/placeholder.svg?height=60&width=60",
       rating: 5,
     },
@@ -42,7 +42,7 @@ export function Testimonials() {
       name: "David Thompson",
       role: "Founder at InnovateLab",
       content:
-        "Exceptional work quality and great communication throughout the project. [Your Name] understood our requirements perfectly and delivered a solution that perfectly fits our needs.",
+        "Exceptional work quality and great communication throughout the project. [Md. Tauseef - Ur - Rahman] understood our requirements perfectly and delivered a solution that perfectly fits our needs.",
       avatar: "/placeholder.svg?height=60&width=60",
       rating: 5,
     },
@@ -51,30 +51,34 @@ export function Testimonials() {
       name: "Lisa Wang",
       role: "CTO at DataFlow",
       content:
-        "The technical skills and problem-solving abilities are top-notch. [Your Name] helped us overcome complex challenges and delivered a robust, scalable solution.",
+        "The technical skills and problem-solving abilities are top-notch. [Md. Tauseef - Ur - Rahman] helped us overcome complex challenges and delivered a robust, scalable solution.",
       avatar: "/placeholder.svg?height=60&width=60",
       rating: 5,
     },
-  ]
+  ];
 
   const nextTestimonial = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length)
-  }
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+  };
 
   const prevTestimonial = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length)
-  }
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length
+    );
+  };
 
   useEffect(() => {
-    const interval = setInterval(nextTestimonial, 5000)
-    return () => clearInterval(interval)
-  }, [])
+    const interval = setInterval(nextTestimonial, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className="py-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">What Clients Say</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            What Clients Say
+          </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Don't just take my word for it - here's what my clients have to say
           </p>
@@ -87,7 +91,9 @@ export function Testimonials() {
                 <div className="text-center">
                   <div className="flex justify-center mb-6">
                     <Image
-                      src={testimonials[currentIndex].avatar || "/placeholder.svg"}
+                      src={
+                        testimonials[currentIndex].avatar || "/placeholder.svg"
+                      }
                       alt={testimonials[currentIndex].name}
                       width={80}
                       height={80}
@@ -96,9 +102,14 @@ export function Testimonials() {
                   </div>
 
                   <div className="flex justify-center mb-4">
-                    {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-                    ))}
+                    {[...Array(testimonials[currentIndex].rating)].map(
+                      (_, i) => (
+                        <Star
+                          key={i}
+                          className="h-5 w-5 fill-yellow-400 text-yellow-400"
+                        />
+                      )
+                    )}
                   </div>
 
                   <blockquote className="text-lg md:text-xl text-muted-foreground mb-6 italic">
@@ -106,8 +117,12 @@ export function Testimonials() {
                   </blockquote>
 
                   <div>
-                    <h4 className="font-semibold text-lg">{testimonials[currentIndex].name}</h4>
-                    <p className="text-muted-foreground">{testimonials[currentIndex].role}</p>
+                    <h4 className="font-semibold text-lg">
+                      {testimonials[currentIndex].name}
+                    </h4>
+                    <p className="text-muted-foreground">
+                      {testimonials[currentIndex].role}
+                    </p>
                   </div>
                 </div>
               </CardContent>
@@ -146,5 +161,5 @@ export function Testimonials() {
         </div>
       </div>
     </section>
-  )
+  );
 }
