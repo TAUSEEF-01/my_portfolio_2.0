@@ -61,26 +61,32 @@ export function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <div className="space-y-4">
-              <h1 className="text-3xl md:text-4xl font-bold leading-tight">
-                Hi, I'm{" "}
-                <span className="text-primary bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600">
-                  {displayed}
-                  <span className="animate-pulse">|</span>
-                </span>
-              </h1>
-              {/* <h2 className="text-2xl md:text-3xl text-muted-foreground">
-                Computer Science Student & Full-Stack Developer
-              </h2> */}
-              <p className="text-lg text-muted-foreground max-w-lg">
-                🎓 Computer Science Student | 👨‍💻 Competitive programmer | 💻
-                Full-stack Developer | 🧠 Passionate about solving complex
-                problems & 🚀 building impactful projects!
-              </p>
-              <div className="flex flex-wrap gap-2 mt-4">
-                <Badge variant="secondary">Codeforces Pupil</Badge>
-                <Badge variant="secondary">Codechef 3⭐</Badge>
-                <Badge variant="secondary">Python AI Trainer</Badge>
-                <Badge variant="secondary">University of Dhaka</Badge>
+              <div>
+                <h1
+                  className="text-3xl md:text-5xl font-bold leading-tight"
+                  // Reserve space for full name
+                  style={{ minHeight: "6.5rem" }}
+                >
+                  Hi, I'm
+                  <br />
+                  <span className="text-3xl md:text-5xl text-primary bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600 mt-4">
+                    {displayed}
+                    <span className="animate-pulse">|</span>
+                  </span>
+                </h1>
+              </div>
+              <div className="mt-6 space-y-3">
+                <p className="text-lg text-muted-foreground max-w-lg">
+                  🎓 Computer Science Student | 👨‍💻 Competitive programmer | 💻
+                  Full-stack Developer | 🧠 Passionate about solving complex
+                  problems & 🚀 building impactful projects!
+                </p>
+                <div className="flex flex-wrap gap-2 mt-4">
+                  <Badge variant="secondary">Codeforces Pupil</Badge>
+                  <Badge variant="secondary">Codechef 3⭐</Badge>
+                  <Badge variant="secondary">Python AI Trainer</Badge>
+                  <Badge variant="secondary">University of Dhaka</Badge>
+                </div>
               </div>
             </div>
 
@@ -92,7 +98,7 @@ export function Hero() {
                 </Link>
               </Button>
               <Button variant="outline" size="lg" asChild>
-                <Link href="/resume.pdf" target="_blank">
+                <Link href="https://drive.google.com/file/d/1Y2lnExWPWTl--QUrokcDMKWDaA6wNhJY/view?usp=sharing" target="_blank">
                   <Download className="mr-2 h-4 w-4" />
                   Download Resume
                 </Link>
