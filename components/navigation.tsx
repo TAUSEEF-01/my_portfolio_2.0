@@ -40,8 +40,33 @@ function NavBar({ items, className }: NavBarProps) {
 
     handleResize();
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+
+    // Scroll spy logic
+    const handleScroll = () => {
+      let found = false;
+      for (let i = items.length - 1; i >= 0; i--) {
+        const sectionId = items[i].url.replace("#", "");
+        const section = document.getElementById(sectionId);
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 80 && rect.bottom > 80) {
+            setActiveTab(items[i].name);
+            found = true;
+            break;
+          }
+        }
+      }
+      // fallback: if no section found, set to first
+      if (!found) setActiveTab(items[0].name);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [items]);
 
   return (
     <div
