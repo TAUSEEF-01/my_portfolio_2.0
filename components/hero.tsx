@@ -8,6 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import profileImage from "../images/profile_img.jpg";
 import React, { useEffect, useState } from "react";
+import Orb from "./Orb";
 
 export function Hero() {
   // Typewriter effect for name
@@ -60,20 +61,20 @@ export function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <div className="space-y-4">
-                <h1 className="text-3xl md:text-4xl font-bold leading-tight">
+              <h1 className="text-3xl md:text-4xl font-bold leading-tight">
                 Hi, I'm{" "}
                 <span className="text-primary bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600">
                   {displayed}
                   <span className="animate-pulse">|</span>
                 </span>
-                </h1>
+              </h1>
               {/* <h2 className="text-2xl md:text-3xl text-muted-foreground">
                 Computer Science Student & Full-Stack Developer
               </h2> */}
               <p className="text-lg text-muted-foreground max-w-lg">
-                🎓 Computer Science Student | 👨‍💻 Competitive programmer | 💻 Full-stack Developer | 🧠
-                Passionate about solving complex problems & 🚀 building
-                impactful projects!
+                🎓 Computer Science Student | 👨‍💻 Competitive programmer | 💻
+                Full-stack Developer | 🧠 Passionate about solving complex
+                problems & 🚀 building impactful projects!
               </p>
               <div className="flex flex-wrap gap-2 mt-4">
                 <Badge variant="secondary">Codeforces Pupil</Badge>
@@ -101,16 +102,38 @@ export function Hero() {
 
           <div className="flex justify-center lg:justify-end">
             <div className="relative">
-              <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-primary/20 backdrop-blur-sm bg-background/10">
-                <Image
-                  src={profileImage}
-                  alt="Md. Tauseef Ur Rahman - Computer Science Student & Developer"
-                  width={320}
-                  height={320}
-                  className="object-cover w-full h-full"
-                />
+              <div
+                style={{
+                  width: "400px",
+                  height: "400px",
+                  position: "relative",
+                }}
+                className="flex items-center justify-center"
+              >
+                {/* Orb and image are now perfectly overlapped */}
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <Orb
+                    hoverIntensity={0.5}
+                    rotateOnHover={true}
+                    hue={0}
+                    forceHoverState={false}
+                  />
+                </div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="relative">
+                    <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-primary/20 backdrop-blur-sm bg-background/10">
+                      <Image
+                        src={profileImage}
+                        alt="Md. Tauseef Ur Rahman - Computer Science Student & Developer"
+                        width={320}
+                        height={320}
+                        className="object-cover w-full h-full"
+                      />
+                    </div>
+                    <div className="absolute -z-10 top-4 left-4 w-80 h-80 rounded-full bg-primary/10 backdrop-blur-sm"></div>
+                  </div>
+                </div>
               </div>
-              <div className="absolute -z-10 top-4 left-4 w-80 h-80 rounded-full bg-primary/10 backdrop-blur-sm"></div>
             </div>
           </div>
         </div>
