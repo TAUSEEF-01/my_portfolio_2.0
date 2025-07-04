@@ -65,10 +65,7 @@ export function Education() {
                         <h3 className="text-xl font-semibold text-foreground">
                           {edu.institution}
                         </h3>
-                        {/* <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <Calendar className="h-4 w-4" />
-                          <span>{edu.duration}</span>
-                        </div> */}
+              
                       </div>
 
                       <p className="text-lg text-muted-foreground mb-3">

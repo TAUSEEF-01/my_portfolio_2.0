@@ -1,0 +1,104 @@
+🚀 Presenting Our E-Commerce Platform!  🛒
+
+As part of our Database Management System course at the University of Dhaka, my friend Faiaz Mahmud Ifti and I developed a full-stack e-commerce platform (Online Shop Management System) showcasing advanced database concepts and modern web technologies! 
+
+🌟 Key Features: 
+✅ Secure User Authentication 
+✅ Advanced Product Browsing (Filtering, Sorting, Search) 
+✅ Admin Dashboard (Sales Analytics, Product & User Management) 
+✅ Responsive Design for Desktop & Mobile 
+✅ Robust Database with SQL Concepts (Joins, Nested Queries, Aggregates, and more!) 
+
+💾 Tech Stack:
+ 🖥 Frontend: Next.js 14, TypeScript, Tailwind CSS
+ ⚙️ Backend: Node.js, Express.js, PostgreSQL
+
+🌐 Explore the platform: 
+- Browse products, add to cart, and checkout securely 
+- Check out the admin dashboard for sales analytics and management 
+- Learn about the team and project on the About page 
+
+📂 GitHub Repo: https://lnkd.in/gK-Y9ypM
+
+
+
+
+
+
+🚀 Excited to Share Our Project: LivingConnect! 🏡✨
+LivingConnect is a mobile app designed to revolutionize the home rental experience. From finding your dream home to managing essential services, it has everything you need for a seamless experience.
+
+🔑 Key Features:
+ 🌍 Interactive map for location-based property search
+ 📢 Direct messaging between renters and property owners
+ ⚙️ Custom filters to find your perfect property
+ 🛒 Secure payment gateway
+ 🏠 Essential home services like house shifting, coloring & repairs
+ 🏢 Community centers for program purposes
+
+🧑‍💻 Technologies:
+ ✨ Frontend: React Native (Expo)
+ ⚡ Backend: Node.js & MongoDB
+ 🌏 Location: react-native-maps integration
+ 🔗 API: Axios for data fetching
+ 🎨 UI Styling: Tailwind CSS
+
+🙏 Special Thanks:
+ We extend our heartfelt thanks and deepest gratitude to Md. Fahim Arefin Sir and Md. Tanvir Alam Sir for their invaluable guidance and unwavering support throughout the semester. Your mentorship has been instrumental in shaping our understanding and enhancing our development skills.
+
+💖  **A Huge Shoutout to My Amazing Team Members (Team DU_CodeX_Legends):**
+Ashraful Alam, Sumaiya Tabassum, and Tamzid Bin Tariq — your dedication, creativity, and hard work made this project possible. I couldn't have asked for a better team to work with. Thank you for giving it your all and making this journey truly memorable! 🚀🙌
+
+⭐ GitHub repo: https://lnkd.in/gvTbnZmH
+
+
+
+
+
+
+
+🎯 Angry Birds Game
+🏛 Department of Computer Science and Engineering
+University of Dhaka
+
+📌 Project Name: Angry Birds
+📜 Project Description
+“Angry Birds” is an SDL-based game written in C++. The game consists of three levels, utilizing C++ and the Simple DirectMedia Layer Library (SDL) to replicate the mechanics of the classic Angry Birds game. 🐦💥
+
+🔹 The bird follows a projectile motion, and the player sets its direction by pulling and releasing it. 🔹 A physics-based puzzle game, offering fun and engaging gameplay similar to the original.
+
+https://github.com/TAUSEEF-01/CSEDU_Game_Project_Angry_Birds
+
+
+
+
+GitHub - TAUSEEF-01/OOP_Project_2024
+The Teacher-Student Portal is a web-based application designed to provide an efficient and user-friendly platform for both teachers and students. 🎓👩‍🏫
+
+🌟 Features
+📑 Assignment Submissions
+📊 Grade Tracking
+💬 Forums for Discussions
+📚 Course Management
+✅ To-Do Lists
+📅 Schedules
+
+
+https://github.com/TAUSEEF-01/OOP_Project_2024
+
+
+
+
+
+
+🌦️ Weather App
+📱 My First App!
+Hey everyone! 🎉 This is my first time making an app, and I hope you guys will like it! 🚀
+
+📂 What's Inside?
+Inside the Weather App folder, you'll find the .apk file, which you can install to try out the app.
+
+💡 Download and install it to get real-time weather updates! ☁️🌞
+
+
+https://github.com/TAUSEEF-01/Weather-App
