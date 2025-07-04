@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { SparklesCore } from "@/components/ui/sparkles";
@@ -5,8 +7,36 @@ import { ArrowDown, Download } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import profileImage from "../images/profile_img.jpg";
+import React, { useEffect, useState } from "react";
 
 export function Hero() {
+  // Typewriter effect for name
+  const name = "Md. Tauseef - Ur - Rahman";
+  const [displayed, setDisplayed] = useState("");
+  const [typing, setTyping] = useState(true);
+
+  useEffect(() => {
+    let timeout: NodeJS.Timeout;
+    if (typing) {
+      if (displayed.length < name.length) {
+        timeout = setTimeout(() => {
+          setDisplayed(name.slice(0, displayed.length + 1));
+        }, 90);
+      } else {
+        timeout = setTimeout(() => setTyping(false), 1200);
+      }
+    } else {
+      if (displayed.length > 0) {
+        timeout = setTimeout(() => {
+          setDisplayed(name.slice(0, displayed.length - 1));
+        }, 40);
+      } else {
+        timeout = setTimeout(() => setTyping(true), 600);
+      }
+    }
+    return () => clearTimeout(timeout);
+  }, [displayed, typing, name]);
+
   return (
     <section
       id="home"
@@ -30,17 +60,18 @@ export function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <div className="space-y-4">
-              <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+                <h1 className="text-3xl md:text-4xl font-bold leading-tight">
                 Hi, I'm{" "}
                 <span className="text-primary bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600">
-                  Md. Tauseef Ur Rahman
+                  {displayed}
+                  <span className="animate-pulse">|</span>
                 </span>
-              </h1>
-              <h2 className="text-2xl md:text-3xl text-muted-foreground">
+                </h1>
+              {/* <h2 className="text-2xl md:text-3xl text-muted-foreground">
                 Computer Science Student & Full-Stack Developer
-              </h2>
+              </h2> */}
               <p className="text-lg text-muted-foreground max-w-lg">
-                👨‍💻 Competitive programmer | 💻 Full-stack Developer | 🧠
+                🎓 Computer Science Student | 👨‍💻 Competitive programmer | 💻 Full-stack Developer | 🧠
                 Passionate about solving complex problems & 🚀 building
                 impactful projects!
               </p>
