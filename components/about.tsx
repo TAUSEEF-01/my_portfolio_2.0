@@ -74,7 +74,7 @@ export function About() {
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Currently pursuing Bachelor of Science in Computer Science and
-            Engineering at University of Dhaka (3rd year, CGPA: 3.62). I have
+            Engineering at University of Dhaka (3rd year). I have
             professional experience as a Python AI Trainer and a strong
             background in competitive programming with multiple contest
             achievements.
