@@ -1,0 +1,51 @@
+41 no Circular Road
+Dhanmondi, Dhaka
+Phone: 01852-039838
+Email: mdtauseef.rahmang01@gmail.com
+LinkedIn: https://www.linkedin.com/in/md-tauseef-ur-rahman-9240bb259/
+GitHub: https://github.com/TAUSEEF-01
+
+
+
+
+Education
+University of Dhaka
+Bachelor of Science in Computer Science and Engineering (3rd year 1st semester)
+CGPA: 3.62
+Graduation Year: 2026
+Dhaka College
+Higher Secondary Certificate (HSC)
+GPA: 5.00 (General scholarship)
+Government Laboratory High School
+Secondary School Certificate (SSC)
+GPA: 5.00 (General scholarship)
+
+
+Achievements & Competitive Programming
+● Codeforces: Pupil
+● Codechef: 3 Star
+● Programming Contests:
+○ 7th Position at East West University CTF
+○ 3rd Position at DU CTF
+. 15th position at Asia Pacific University 
+● Hackathons: Participated in multiple hackathons (Code samurai - went to 2nd stage)
+
+
+
+Professional Experience
+Python AI Trainer | SuperAnnotate
+● Worked as an AI trainer, contributing to model development and data annotation.
+● Enhanced the accuracy of machine learning models through refined data training.
+● Provided Python-based solutions for AI-related challenges.
+
+
+Technical Skills
+● Programming Languages: Java (Spring Boot, Spring MVC), Python, C++, JavaScript,
+Node.js
+● Frontend Technologies: React.js, Next.js
+● Backend Technologies: Node.js, Spring Boot, Golang, .NET (C#)
+● Databases: MySQL, Oracle, MongoDB, JPA, Hibernate
+● Software Testing: Manual & Automation Testing (SQA)
+● Web Services: REST & RESTful APIs
+● Tools & Platforms: Git, Postman, Expo Router, Tailwind CSS, PostgreSQL
+

@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { ArrowDown, Download } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import profileImage from "../images/profile_img.jpg"; // Update with your actual image path
+import profileImage from "../images/profile_img.jpg";
 
 export function Hero() {
   return (
@@ -32,16 +33,23 @@ export function Hero() {
               <h1 className="text-4xl md:text-6xl font-bold leading-tight">
                 Hi, I'm{" "}
                 <span className="text-primary bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600">
-                  Md. Tauseef - Ur - Rahman
+                  Md. Tauseef Ur Rahman
                 </span>
               </h1>
-              {/* <h2 className="text-2xl md:text-3xl text-muted-foreground">
-                Front-End Developer
-              </h2> */}
+              <h2 className="text-2xl md:text-3xl text-muted-foreground">
+                Computer Science Student & Full-Stack Developer
+              </h2>
               <p className="text-lg text-muted-foreground max-w-lg">
-                👨‍💻 Competitive programmer | 💻 Full-stack Developer | 🧠 Passionate about solving complex problems & 🚀 building impactful projects!
-
+                👨‍💻 Competitive programmer | 💻 Full-stack Developer | 🧠
+                Passionate about solving complex problems & 🚀 building
+                impactful projects!
               </p>
+              <div className="flex flex-wrap gap-2 mt-4">
+                <Badge variant="secondary">Codeforces Pupil</Badge>
+                <Badge variant="secondary">Codechef 3⭐</Badge>
+                <Badge variant="secondary">Python AI Trainer</Badge>
+                <Badge variant="secondary">University of Dhaka</Badge>
+              </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -65,7 +73,7 @@ export function Hero() {
               <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-primary/20 backdrop-blur-sm bg-background/10">
                 <Image
                   src={profileImage}
-                  alt="Md. Tauseef - Ur - Rahman - Professional Headshot"
+                  alt="Md. Tauseef Ur Rahman - Computer Science Student & Developer"
                   width={320}
                   height={320}
                   className="object-cover w-full h-full"

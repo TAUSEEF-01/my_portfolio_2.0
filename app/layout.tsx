@@ -10,19 +10,20 @@ import { Toaster } from "@/components/ui/toaster";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Md. Tauseef - Ur - Rahman - Front-End Developer",
+  title:
+    "Md. Tauseef Ur Rahman - Computer Science Student & Full-Stack Developer",
   description:
-    "Professional portfolio of Md. Tauseef - Ur - Rahman, a passionate front-end developer creating beautiful and functional web experiences.",
+    "Portfolio of Md. Tauseef Ur Rahman - Computer Science student at University of Dhaka, competitive programmer (Codeforces Pupil, Codechef 3-Star), and full-stack developer with professional AI training experience.",
   keywords:
-    "front-end developer, web developer, React, Next.js, TypeScript, portfolio",
-  authors: [{ name: "Md. Tauseef - Ur - Rahman" }],
+    "competitive programming, full-stack developer, computer science, University of Dhaka, Codeforces, Codechef, React, Next.js, Python, Java, Spring Boot, AI training, web development",
+  authors: [{ name: "Md. Tauseef Ur Rahman" }],
   openGraph: {
-    title: "Md. Tauseef - Ur - Rahman - Front-End Developer",
+    title: "Md. Tauseef Ur Rahman - Computer Science Student & Developer",
     description:
-      "Professional portfolio showcasing modern web development projects and skills.",
+      "Competitive programmer and full-stack developer passionate about solving complex problems and building impactful solutions.",
     type: "website",
   },
-  generator: "v0.dev",
+  generator: "Next.js",
 };
 
 export default function RootLayout({

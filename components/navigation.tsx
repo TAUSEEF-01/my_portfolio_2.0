@@ -1,44 +1,59 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
-import { motion } from "framer-motion"
-import Link from "next/link"
-import { type LucideIcon, Home, User, Briefcase, BookOpen, Mail, Sun, Moon } from "lucide-react"
-import { useTheme } from "next-themes"
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import {
+  type LucideIcon,
+  Home,
+  User,
+  Briefcase,
+  Mail,
+  Sun,
+  Moon,
+  Trophy,
+  GraduationCap,
+} from "lucide-react";
+import { useTheme } from "next-themes";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 interface NavItem {
-  name: string
-  url: string
-  icon: LucideIcon
+  name: string;
+  url: string;
+  icon: LucideIcon;
 }
 
 interface NavBarProps {
-  items: NavItem[]
-  className?: string
+  items: NavItem[];
+  className?: string;
 }
 
 function NavBar({ items, className }: NavBarProps) {
-  const [activeTab, setActiveTab] = useState(items[0].name)
-  const [isMobile, setIsMobile] = useState(false)
+  const [activeTab, setActiveTab] = useState(items[0].name);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
+      setIsMobile(window.innerWidth < 768);
+    };
 
-    handleResize()
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
-    <div className={cn("fixed bottom-0 sm:top-0 left-1/2 -translate-x-1/2 z-50 mb-6 sm:pt-6", className)}>
-      <div className="flex items-center gap-3 bg-background/5 border border-border backdrop-blur-lg py-1 px-1 rounded-full shadow-lg">
+    <div
+      className={cn(
+        "fixed bottom-0 sm:top-0 left-1/2 -translate-x-1/2 z-50 mb-6 sm:pt-6",
+        className
+      )}
+    >
+      <div className="flex items-center gap-2 bg-background/5 border border-border backdrop-blur-lg py-1 px-1 rounded-full shadow-lg">
         {items.map((item) => {
-          const Icon = item.icon
-          const isActive = activeTab === item.name
+          const Icon = item.icon;
+          const isActive = activeTab === item.name;
 
           return (
             <Link
@@ -46,13 +61,13 @@ function NavBar({ items, className }: NavBarProps) {
               href={item.url}
               onClick={() => setActiveTab(item.name)}
               className={cn(
-                "relative cursor-pointer text-sm font-semibold px-6 py-2 rounded-full transition-colors",
+                "relative cursor-pointer text-sm font-semibold px-4 py-2 rounded-full transition-colors",
                 "text-foreground/80 hover:text-primary",
-                isActive && "bg-muted text-primary",
+                isActive && "bg-muted text-primary"
               )}
             >
-              <span className="hidden md:inline">{item.name}</span>
-              <span className="md:hidden">
+              <span className="hidden lg:inline">{item.name}</span>
+              <span className="lg:hidden">
                 <Icon size={18} strokeWidth={2.5} />
               </span>
 
@@ -75,28 +90,29 @@ function NavBar({ items, className }: NavBarProps) {
                 </motion.div>
               )}
             </Link>
-          )
+          );
         })}
       </div>
     </div>
-  )
+  );
 }
 
 export function Navigation() {
-  const [mounted, setMounted] = useState(false)
-  const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
   const navItems: NavItem[] = [
     { name: "Home", url: "#home", icon: Home },
     { name: "About", url: "#about", icon: User },
+    { name: "Education", url: "#education", icon: GraduationCap },
+    { name: "Achievements", url: "#achievements", icon: Trophy },
     { name: "Portfolio", url: "#portfolio", icon: Briefcase },
-    { name: "Blog", url: "#blog", icon: BookOpen },
     { name: "Contact", url: "#contact", icon: Mail },
-  ]
+  ];
 
   return (
     <>
@@ -111,10 +127,14 @@ export function Navigation() {
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             className="bg-background/80 backdrop-blur-md border border-border rounded-full"
           >
-            {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+            {theme === "dark" ? (
+              <Sun className="h-5 w-5" />
+            ) : (
+              <Moon className="h-5 w-5" />
+            )}
           </Button>
         </div>
       )}
     </>
-  )
+  );
 }
