@@ -1,5 +1,5 @@
 import { type NextRequest, NextResponse } from "next/server"
-// import { supabase } from "@/lib/supabase"
+import { supabase } from "@/lib/supabase"
 
 export async function POST(request: NextRequest) {
   try {
@@ -12,22 +12,22 @@ export async function POST(request: NextRequest) {
     }
 
     // Insert into Supabase
-    // const { data, error } = await supabase
-    //   .from("contact_submissions")
-    //   .insert([
-    //     {
-    //       name,
-    //       email,
-    //       subject,
-    //       message,
-    //     },
-    //   ])
-    //   .select()
+    const { data, error } = await supabase
+      .from("contact_submissions")
+      .insert([
+        {
+          name,
+          email,
+          subject,
+          message,
+        },
+      ])
+      .select()
 
-    // if (error) {
-    //   console.error("Supabase error:", error)
-    //   return NextResponse.json({ error: "Failed to submit contact form" }, { status: 500 })
-    // }
+    if (error) {
+      console.error("Supabase error:", error)
+      return NextResponse.json({ error: "Failed to submit contact form" }, { status: 500 })
+    }
 
     return NextResponse.json({ message: "Contact form submitted successfully", data }, { status: 200 })
   } catch (error) {
