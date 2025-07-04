@@ -1,60 +1,37 @@
-import { NextRequest, NextResponse } from "next/server";
-
-// Types for contact form data
-interface ContactFormData {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-}
+import { type NextRequest, NextResponse } from "next/server"
+import { supabase } from "@/lib/supabase"
 
 export async function POST(request: NextRequest) {
   try {
-    const body: ContactFormData = await request.json();
-    const { name, email, subject, message } = body;
+    const body = await request.json()
+    const { name, email, subject, message } = body
 
-    // Basic validation
+    // Validate required fields
     if (!name || !email || !subject || !message) {
-      return NextResponse.json(
-        { error: "All fields are required" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "All fields are required" }, { status: 400 })
     }
 
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      return NextResponse.json(
-        { error: "Invalid email format" },
-        { status: 400 }
-      );
+    // Insert into Supabase
+    const { data, error } = await supabase
+      .from("contact_submissions")
+      .insert([
+        {
+          name,
+          email,
+          subject,
+          message,
+        },
+      ])
+      .select()
+
+    if (error) {
+      console.error("Supabase error:", error)
+      return NextResponse.json({ error: "Failed to submit contact form" }, { status: 500 })
     }
 
-    // TODO: Replace with your preferred method of handling contact form submissions
-    // Options:
-    // 1. Send email using a service like Resend, SendGrid, or Nodemailer
-    // 2. Store in a different database
-    // 3. Send to a webhook
-    // 4. Log to console (temporary solution)
-
-    console.log("Contact form submission:", {
-      name,
-      email,
-      subject,
-      message,
-      timestamp: new Date().toISOString(),
-    });
-
-    // For now, just return success
-    return NextResponse.json(
-      { message: "Message sent successfully!" },
-      { status: 200 }
-    );
+    return NextResponse.json({ message: "Contact form submitted successfully", data }, { status: 200 })
   } catch (error) {
-    console.error("Contact form error:", error);
-    return NextResponse.json(
-      { error: "Internal server error" },
-      { status: 500 }
-    );
+    console.error("API error:", error)
+    return NextResponse.json({ error: "Internal server error" }, { status: 500 })
   }
 }
