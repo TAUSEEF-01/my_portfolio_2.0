@@ -38,6 +38,7 @@
     "@radix-ui/react-toggle": "latest",
     "@radix-ui/react-toggle-group": "latest",
     "@radix-ui/react-tooltip": "latest",
+    "@supabase/supabase-js": "^2.50.3",
     "@tsparticles/engine": "latest",
     "@tsparticles/react": "latest",
     "@tsparticles/slim": "latest",
@@ -74,4 +75,3 @@
     "typescript": "^5"
   }
 }
-
