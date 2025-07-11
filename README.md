@@ -26,9 +26,9 @@ Hi, I'm **Tauseef**, a passionate developer and designer. This portfolio showcas
 
 ## Live Demo
 
-Project is live at:
+Your project is live at:
 
-**[tauseef-thebest-01-portfolio.vercel.app](tauseef-thebest-01-portfolio.vercel.app)**
+**[tauseef-thebest-01-portfolio.vercel.app](https://tauseef-thebest-01-portfolio.vercel.app/)**
 
 ## How to Build & Deploy
 
@@ -39,9 +39,9 @@ Project is live at:
 
 ## Contact
 
-- **Email:** tauseef@example.com
-- **LinkedIn:** [linkedin.com/in/tauseef](https://linkedin.com/in/tauseef)
-- **GitHub:** [github.com/tauseef-01](https://github.com/tauseef-01)
+- **Email:** mdtauseef.rahmang01@gmail.com
+- **LinkedIn:** [linkedin.com/in/tauseef](https://www.linkedin.com/in/md-tauseef-ur-rahman-9240bb259/)
+- **GitHub:** [github.com/TAUSEEF-01](https://github.com/TAUSEEF-01)
 
 ---
 
