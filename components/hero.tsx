@@ -48,8 +48,8 @@ export function Hero() {
         <SparklesCore
           id="tsparticlesfullpage"
           background="transparent"
-          minSize={0.6}
-          maxSize={1.4}
+          minSize={0.8}
+          maxSize={1.8}
           particleDensity={100}
           className="w-full h-full"
           particleColor="#3b82f6"
@@ -126,18 +126,18 @@ export function Hero() {
                   />
                 </div>
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="relative">
+                    <div className="relative">
                     <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-primary/20 backdrop-blur-sm bg-background/10">
                       <Image
-                        src={profileImage}
-                        alt="Md. Tauseef Ur Rahman - Computer Science Student & Developer"
-                        width={320}
-                        height={320}
-                        className="object-cover w-full h-full"
+                      src={profileImage}
+                      alt="Md. Tauseef Ur Rahman - Computer Science Student & Developer"
+                      width={320}
+                      height={320}
+                      className="object-cover w-full h-full"
                       />
                     </div>
-                    <div className="absolute -z-10 top-4 left-4 w-80 h-80 rounded-full bg-primary/10 backdrop-blur-sm"></div>
-                  </div>
+                    <div className="absolute -z-10 top-2 left-2 w-80 h-80 rounded-full bg-primary/10 backdrop-blur-sm"></div>
+                    </div>
                 </div>
               </div>
             </div>
