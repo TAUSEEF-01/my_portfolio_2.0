@@ -28,7 +28,7 @@ Hi, I'm **Tauseef**, a passionate developer and designer. This portfolio showcas
 
 Your project is live at:
 
-**[tauseef-thebest-01-portfolio.vercel.app](https://tauseef-thebest-01-portfolio.vercel.app/)**
+**[https://tauseef-thebest-01-portfolio.vercel.app/](https://tauseef-thebest-01-portfolio.vercel.app/)**
 
 ## How to Build & Deploy
 
