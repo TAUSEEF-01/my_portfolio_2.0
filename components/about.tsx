@@ -34,6 +34,8 @@ export function About() {
     "Spring Boot",
     "Spring MVC",
     "Python",
+    "FastAPI",
+    "RestAPI",
     "C++",
     "JavaScript",
     "TypeScript",
@@ -138,38 +140,44 @@ export function About() {
           </div>
         </div>
 
-        {/* Technologies Section - 3D Interactive */}
+        {/* Technologies Section - 3D Orb Style */}
         <div className="w-full">
-          <h3 className="text-3xl font-bold mb-4 text-center bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+          <h3 className="text-3xl font-bold mb-3 text-center bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
             Technologies I Work With
           </h3>
-          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Drag to rotate • Click to explore • Hover for details
+          <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto text-sm">
+            Hover to interact • Explore my tech stack
           </p>
 
-          {/* 3D Tech Stack Display */}
-          <div className="relative max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Compact 3D Orb-Style Grid */}
+          <div className="relative max-w-5xl mx-auto">
+            {/* Central glow effect */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-primary/20 to-blue-500/20 rounded-full blur-3xl opacity-50 pointer-events-none" />
+            
+            <div className="relative grid grid-cols-3 md:grid-cols-4 lg:grid-cols-11 gap-x-4 gap-y-8">
               {technologies.map((tech, index) => (
                 <div
                   key={index}
                   className="group relative"
                   style={{
+                    animation: `float ${3 + (index % 3)}s ease-in-out infinite`,
                     animationDelay: `${index * 0.1}s`,
                   }}
                 >
-                  <div className="relative p-6 rounded-2xl bg-gradient-to-br from-card via-card/95 to-card/90 border-2 border-border hover:border-primary/50 shadow-lg hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 hover:-translate-y-2 backdrop-blur-sm">
-                    {/* Glow effect on hover */}
-                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="relative w-full p-4 rounded-xl bg-gradient-to-br from-card/80 via-card/60 to-card/40 border border-border/50 hover:border-primary/50 shadow-lg hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 backdrop-blur-sm group-hover:scale-110 group-hover:z-10">
+                    {/* Glow effect */}
+                    <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary/20 to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     
-                    {/* Content */}
-                    <div className="relative z-10 flex flex-col items-center justify-center min-h-[120px]">
-                      <div className="text-5xl mb-4 transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
+                    {/* Tech Icon and Name */}
+                    <div className="relative z-10 flex flex-col items-center justify-center gap-2">
+                      <div className="text-3xl md:text-4xl transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-300">
                         {tech === "Java" && "☕"}
                         {tech === "Spring Boot" && "🌱"}
                         {tech === "Spring MVC" && "🛠️"}
                         {tech === "Python" && "🐍"}
-                        {tech === "C++" && "💡"}
+                        {tech === "FastAPI" && "⚡"}
+                        {tech === "RestAPI" && "🔌"}
+                        {tech === "C++" && "�"}
                         {tech === "JavaScript" && "✨"}
                         {tech === "TypeScript" && "🔷"}
                         {tech === "Node.js" && "🟢"}
@@ -186,22 +194,19 @@ export function About() {
                         {tech === "Expo Router" && "📱"}
                         {tech === "Tailwind CSS" && "🌈"}
                       </div>
-                      <h4 className="font-bold text-base text-center group-hover:text-primary transition-colors duration-300">
-                        {tech}
-                      </h4>
                       
-                      {/* Animated border */}
-                      <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent animate-shimmer" />
-                        <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent animate-shimmer" style={{ animationDelay: "0.5s" }} />
+                      {/* Tech name - always visible */}
+                      <div className="text-[10px] md:text-xs font-bold text-center group-hover:text-primary transition-colors duration-300 line-clamp-2 leading-tight">
+                        {tech}
                       </div>
                     </div>
 
-                    {/* Corner accents */}
-                    <div className="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-primary/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="absolute top-2 right-2 w-3 h-3 border-t-2 border-r-2 border-primary/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="absolute bottom-2 left-2 w-3 h-3 border-b-2 border-l-2 border-primary/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="absolute bottom-2 right-2 w-3 h-3 border-b-2 border-r-2 border-primary/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    {/* Orbiting particles */}
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="absolute top-0 left-1/2 w-1 h-1 bg-primary rounded-full animate-orbit-1" />
+                      <div className="absolute top-1/2 right-0 w-1 h-1 bg-blue-500 rounded-full animate-orbit-2" />
+                      <div className="absolute bottom-0 left-1/2 w-1 h-1 bg-cyan-500 rounded-full animate-orbit-3" />
+                    </div>
                   </div>
                 </div>
               ))}
@@ -212,17 +217,52 @@ export function About() {
 
       {/* Global Styles */}
       <style jsx global>{`
-        @keyframes shimmer {
-          0% {
-            transform: translateX(-100%);
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0px);
           }
-          100% {
-            transform: translateX(100%);
+          50% {
+            transform: translateY(-10px);
           }
         }
 
-        .animate-shimmer {
-          animation: shimmer 2s ease-in-out infinite;
+        @keyframes orbit-1 {
+          0% {
+            transform: rotate(0deg) translateX(20px) rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg) translateX(20px) rotate(-360deg);
+          }
+        }
+
+        @keyframes orbit-2 {
+          0% {
+            transform: rotate(120deg) translateX(20px) rotate(-120deg);
+          }
+          100% {
+            transform: rotate(480deg) translateX(20px) rotate(-480deg);
+          }
+        }
+
+        @keyframes orbit-3 {
+          0% {
+            transform: rotate(240deg) translateX(20px) rotate(-240deg);
+          }
+          100% {
+            transform: rotate(600deg) translateX(20px) rotate(-600deg);
+          }
+        }
+
+        .animate-orbit-1 {
+          animation: orbit-1 3s linear infinite;
+        }
+
+        .animate-orbit-2 {
+          animation: orbit-2 3s linear infinite;
+        }
+
+        .animate-orbit-3 {
+          animation: orbit-3 3s linear infinite;
         }
 
         .bg-grid-pattern {
