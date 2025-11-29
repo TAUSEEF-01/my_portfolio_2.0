@@ -210,11 +210,9 @@ export default function Orb({
 
     function resize() {
       if (!container) return;
-      const dpr = window.devicePixelRatio || 1;
-    //   const width = container.clientWidth;
-    //   const height = container.clientHeight;
-
-    const width = 400;
+      // Limit DPR to 1.5 for better performance
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      const width = 400;
       const height = 400;
 
       renderer.setSize(width * dpr, height * dpr);

@@ -13,6 +13,8 @@ import {
   Moon,
   Trophy,
   GraduationCap,
+  Award,
+  Code2,
 } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
@@ -135,6 +137,8 @@ export function Navigation() {
     { name: "About", url: "#about", icon: User },
     { name: "Education", url: "#education", icon: GraduationCap },
     { name: "Achievements", url: "#achievements", icon: Trophy },
+    { name: "LeetCode", url: "#leetcode", icon: Code2 },
+    { name: "Certificates", url: "#certificates", icon: Award },
     { name: "Portfolio", url: "#portfolio", icon: Briefcase },
     { name: "Contact", url: "#contact", icon: Mail },
   ];

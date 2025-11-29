@@ -1,4 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { Trophy, Award, Target, Star } from "lucide-react";
 
 export function Achievements() {
@@ -18,7 +19,7 @@ export function Achievements() {
       items: [
         "HSC: GPA 5.00 (General Scholarship)",
         "SSC: GPA 5.00 (General Scholarship)",
-        "Current CGPA: 3.62 (CSE, University of Dhaka)",
+        "Current CGPA: (To be determined) (CSE, University of Dhaka)",
       ],
     },
     {
@@ -42,36 +43,54 @@ export function Achievements() {
   ];
 
   return (
-    <section id="achievements" className="py-20">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+    <section id="achievements" className="py-24 relative overflow-hidden">
+      {/* Background effects - Static for performance */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-primary/5 to-background" />
+      <div className="absolute top-40 left-10 w-96 h-96 bg-gradient-to-br from-amber-500/8 to-transparent rounded-full blur-3xl opacity-60" />
+      <div className="absolute bottom-40 right-10 w-96 h-96 bg-gradient-to-br from-blue-500/8 to-transparent rounded-full blur-3xl opacity-50" />
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center mb-20">
+          <div className="inline-block mb-4">
+            <Badge variant="outline" className="px-4 py-2 text-sm font-medium">
+              🏆 Accomplishments
+            </Badge>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
             Achievements & Recognition
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Academic excellence, competitive programming achievements, and
-            professional milestones
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+            Academic excellence, competitive programming achievements, and professional milestones
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {achievements.map((achievement, index) => (
             <Card
               key={index}
-              className="p-6 text-center hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-2 transition-all duration-300 group"
+              className="p-6 text-center hover:shadow-2xl hover:shadow-primary/25 hover:-translate-y-3 transition-all duration-500 group border-2 hover:border-primary/50 bg-card/50 backdrop-blur-sm relative overflow-hidden"
             >
-              <CardContent className="p-0">
-                <div className="p-4 bg-primary/10 rounded-full w-fit mx-auto mb-6 group-hover:bg-primary/20 transition-colors duration-300">
-                  <achievement.icon className="h-12 w-12 text-primary" />
+              {/* Animated background gradient */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <CardContent className="p-0 relative z-10">
+                <div className="relative mb-6">
+                  <div className="p-5 bg-gradient-to-br from-primary/20 to-primary/10 rounded-2xl w-fit mx-auto group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg">
+                    <achievement.icon className="h-12 w-12 text-primary" />
+                  </div>
+                  {/* Glow effect */}
+                  <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-500" />
                 </div>
-                <h3 className="font-semibold text-xl mb-4 group-hover:text-primary transition-colors duration-300">
+                
+                <h3 className="font-bold text-xl mb-6 group-hover:text-primary transition-colors duration-300">
                   {achievement.title}
                 </h3>
-                <ul className="space-y-3 text-sm text-muted-foreground">
+                
+                <ul className="space-y-3 text-sm">
                   {achievement.items.map((item, itemIndex) => (
-                    <li key={itemIndex} className="flex items-start gap-3">
-                      <span className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></span>
-                      <span className="text-left">{item}</span>
+                    <li key={itemIndex} className="flex items-start gap-3 text-left">
+                      <span className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0 group-hover:animate-pulse"></span>
+                      <span className="text-muted-foreground group-hover:text-foreground transition-colors font-medium">{item}</span>
                     </li>
                   ))}
                 </ul>

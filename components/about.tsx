@@ -1,10 +1,7 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Download, Code, Palette, Zap, Users } from "lucide-react";
-import Link from "next/link";
-import { useRef } from "react";
+import { Code, Palette, Zap, Users } from "lucide-react";
 
 export function About() {
   const highlights = [
@@ -54,8 +51,6 @@ export function About() {
     "Expo Router",
     "Tailwind CSS",
   ];
-
-  const techTrackRef = useRef<HTMLDivElement>(null);
 
   return (
     <section
@@ -143,99 +138,91 @@ export function About() {
           </div>
         </div>
 
-        {/* Technologies Section - Full Width */}
+        {/* Technologies Section - 3D Interactive */}
         <div className="w-full">
-          <h3 className="text-2xl font-semibold mb-8 text-center">
+          <h3 className="text-3xl font-bold mb-4 text-center bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
             Technologies I Work With
           </h3>
+          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+            Drag to rotate • Click to explore • Hover for details
+          </p>
 
-          {/* Auto-scrolling track - Full Width */}
-          <div className="relative overflow-hidden group rounded-2xl bg-gradient-to-r from-muted/30 via-background to-muted/30 border shadow-lg">
-            <div
-              ref={techTrackRef}
-              className="flex gap-8 py-6 animate-scroll group-hover:[animation-play-state:paused]"
-              style={{
-                animationDuration: "20s", // Increased speed
-                animationTimingFunction: "linear",
-                animationIterationCount: "infinite",
-                width: "200%", // Ensure full width coverage
-              }}
-            >
-              {[...technologies, ...technologies].map((tech, index) => (
+          {/* 3D Tech Stack Display */}
+          <div className="relative max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {technologies.map((tech, index) => (
                 <div
                   key={index}
-                  className="min-w-[160px] max-w-[200px] flex-shrink-0 flex flex-col items-center justify-center px-6 py-8 rounded-2xl bg-gradient-to-br from-background via-muted/50 to-background border border-border shadow-md relative group/tech transition-all duration-300 hover:scale-110 hover:shadow-[0_0_32px_0_rgba(59,130,246,0.3)] hover:z-10"
+                  className="group relative"
+                  style={{
+                    animationDelay: `${index * 0.1}s`,
+                  }}
                 >
-                  <span className="text-3xl mb-3 group-hover/tech:animate-bounce">
-                    {tech === "Java" && "☕"}
-                    {tech === "Spring Boot" && "🌱"}
-                    {tech === "Spring MVC" && "🛠️"}
-                    {tech === "Python" && "🐍"}
-                    {tech === "C++" && "💡"}
-                    {tech === "JavaScript" && "✨"}
-                    {tech === "TypeScript" && "🔷"}
-                    {tech === "Node.js" && "🟢"}
-                    {tech === "React.js" && "⚛️"}
-                    {tech === "Next.js" && "⏭️"}
-                    {tech === "MySQL" && "🐬"}
-                    {tech === "Oracle" && "🏛️"}
-                    {tech === "MongoDB" && "🍃"}
-                    {tech === "Supabase" && "🦾"}
-                    {tech === "PostgreSQL" && "🐘"}
-                    {tech === "Git" && "🔀"}
-                    {tech === "Github" && "🐙"}
-                    {tech === "Postman" && "📮"}
-                    {tech === "Expo Router" && "📱"}
-                    {tech === "Tailwind CSS" && "🌈"}
-                  </span>
-                  <span className="font-semibold text-base text-foreground group-hover/tech:text-primary transition-colors text-center">
-                    {tech}
-                  </span>
-                  <span className="pointer-events-none absolute inset-0 rounded-2xl border-2 border-primary opacity-0 group-hover/tech:opacity-80 blur-[2px] transition-opacity duration-300" />
-                  <span className="absolute left-0 bottom-0 h-1 w-full bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover/tech:opacity-100 animate-glowline" />
+                  <div className="relative p-6 rounded-2xl bg-gradient-to-br from-card via-card/95 to-card/90 border-2 border-border hover:border-primary/50 shadow-lg hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 hover:-translate-y-2 backdrop-blur-sm">
+                    {/* Glow effect on hover */}
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    
+                    {/* Content */}
+                    <div className="relative z-10 flex flex-col items-center justify-center min-h-[120px]">
+                      <div className="text-5xl mb-4 transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
+                        {tech === "Java" && "☕"}
+                        {tech === "Spring Boot" && "🌱"}
+                        {tech === "Spring MVC" && "🛠️"}
+                        {tech === "Python" && "🐍"}
+                        {tech === "C++" && "💡"}
+                        {tech === "JavaScript" && "✨"}
+                        {tech === "TypeScript" && "🔷"}
+                        {tech === "Node.js" && "🟢"}
+                        {tech === "React.js" && "⚛️"}
+                        {tech === "Next.js" && "⏭️"}
+                        {tech === "MySQL" && "🐬"}
+                        {tech === "Oracle" && "🏛️"}
+                        {tech === "MongoDB" && "🍃"}
+                        {tech === "Supabase" && "🦾"}
+                        {tech === "PostgreSQL" && "🐘"}
+                        {tech === "Git" && "🔀"}
+                        {tech === "Github" && "🐙"}
+                        {tech === "Postman" && "📮"}
+                        {tech === "Expo Router" && "📱"}
+                        {tech === "Tailwind CSS" && "🌈"}
+                      </div>
+                      <h4 className="font-bold text-base text-center group-hover:text-primary transition-colors duration-300">
+                        {tech}
+                      </h4>
+                      
+                      {/* Animated border */}
+                      <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent animate-shimmer" />
+                        <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent animate-shimmer" style={{ animationDelay: "0.5s" }} />
+                      </div>
+                    </div>
+
+                    {/* Corner accents */}
+                    <div className="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-primary/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute top-2 right-2 w-3 h-3 border-t-2 border-r-2 border-primary/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute bottom-2 left-2 w-3 h-3 border-b-2 border-l-2 border-primary/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute bottom-2 right-2 w-3 h-3 border-b-2 border-r-2 border-primary/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  </div>
                 </div>
               ))}
             </div>
-            <div className="absolute left-0 right-0 bottom-0 h-1 bg-gradient-to-r from-transparent via-primary/40 to-transparent blur-sm opacity-60 pointer-events-none" />
           </div>
         </div>
       </div>
 
       {/* Global Styles */}
       <style jsx global>{`
-        @keyframes scroll {
+        @keyframes shimmer {
           0% {
-            transform: translateX(0%);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-
-        .animate-scroll {
-          animation-name: scroll;
-        }
-
-        @keyframes glowline {
-          0% {
-            transform: translateX(100%);
-            opacity: 0.2;
-          }
-          30% {
-            opacity: 1;
-          }
-          100% {
             transform: translateX(-100%);
-            opacity: 0.2;
+          }
+          100% {
+            transform: translateX(100%);
           }
         }
 
-        .animate-glowline {
-          animation: glowline 1.8s linear infinite;
-        }
-
-        .drop-shadow-glow {
-          filter: drop-shadow(0 0 8px #3b82f6) drop-shadow(0 0 16px #3b82f6);
+        .animate-shimmer {
+          animation: shimmer 2s ease-in-out infinite;
         }
 
         .bg-grid-pattern {

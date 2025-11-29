@@ -10,6 +10,7 @@ import Link from "next/link";
 
 export function Portfolio() {
   const [filter, setFilter] = useState("All");
+  const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   const projects = [
     {
@@ -112,11 +113,23 @@ export function Portfolio() {
       : projects.filter((project) => project.category === filter);
 
   return (
-    <section id="portfolio" className="py-20">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">My Portfolio</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+    <section id="portfolio" className="py-24 relative overflow-hidden">
+      {/* Background decorative elements - Static for performance */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/20 to-background" />
+      <div className="absolute top-40 right-20 w-96 h-96 bg-primary/4 rounded-full blur-3xl opacity-70" />
+      <div className="absolute bottom-40 left-20 w-96 h-96 bg-blue-500/4 rounded-full blur-3xl opacity-70" />
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center mb-20">
+          <div className="inline-block mb-4">
+            <Badge variant="outline" className="px-4 py-2 text-sm font-medium">
+              💼 Featured Work
+            </Badge>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+            My Portfolio
+          </h2>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
             A showcase of my recent projects and creative work
           </p>
         </div>
@@ -142,60 +155,69 @@ export function Portfolio() {
           {filteredProjects.map((project) => (
             <Card
               key={project.id}
-              className="group overflow-hidden hover:shadow-lg transition-all duration-300"
+              onMouseEnter={() => setHoveredId(project.id)}
+              onMouseLeave={() => setHoveredId(null)}
+              className="group overflow-hidden hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 border-2 hover:border-primary/50 bg-card/50 backdrop-blur-sm"
             >
-              <div className="relative overflow-hidden">
+              <div className="relative overflow-hidden h-56">
                 <Image
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
                   width={400}
                   height={300}
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                {/* <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <div className="flex gap-2">
-                    <Button size="sm" asChild>
-                      <Link href={project.liveUrl} target="_blank">
-                        <ExternalLink className="h-4 w-4" />
-                      </Link>
-                    </Button>
-                    <Button size="sm" variant="outline" asChild>
-                      <Link href={project.githubUrl} target="_blank">
-                        <Github className="h-4 w-4" />
-                      </Link>
-                    </Button>
-                  </div>
-                </div> */}
-              </div>
-
-              <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                <p className="text-muted-foreground mb-4">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech) => (
-                    <Badge key={tech} variant="secondary" className="text-xs">
-                      {tech}
-                    </Badge>
-                  ))}
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+                
+                {/* Category badge */}
+                <div className="absolute top-4 right-4">
+                  <Badge className="bg-primary/90 backdrop-blur-sm">
+                    {project.category}
+                  </Badge>
                 </div>
-              </CardContent>
-
-              <CardFooter className="p-6 pt-0">
-                <div className="flex gap-2 w-full">
-                  {/* <Button asChild className="flex-1">
-                    <Link href={project.liveUrl} target="_blank">
-                      <ExternalLink className="mr-2 h-4 w-4" />
-                      Live Demo
-                    </Link>
-                  </Button> */}
-                  <Button variant="outline" asChild>
+                
+                {/* Hover overlay with actions */}
+                <div className={`absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/50 to-transparent flex items-center justify-center gap-3 transition-opacity duration-300 ${hoveredId === project.id ? 'opacity-100' : 'opacity-0'}`}>
+                  <Button size="lg" variant="secondary" asChild className="shadow-lg">
                     <Link href={project.githubUrl} target="_blank">
-                      <Github className="h-4 w-4" />
+                      <Github className="mr-2 h-5 w-5" />
+                      View Code
                     </Link>
                   </Button>
                 </div>
+              </div>
+
+              <CardContent className="p-6 space-y-4">
+                <h3 className="text-xl font-bold group-hover:text-primary transition-colors line-clamp-2">
+                  {project.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
+                  {project.description}
+                </p>
+                <div className="flex flex-wrap gap-2 pt-2">
+                  {project.technologies.slice(0, 3).map((tech) => (
+                    <Badge key={tech} variant="secondary" className="text-xs font-medium">
+                      {tech}
+                    </Badge>
+                  ))}
+                  {project.technologies.length > 3 && (
+                    <Badge variant="outline" className="text-xs">
+                      +{project.technologies.length - 3}
+                    </Badge>
+                  )}
+                </div>
+              </CardContent>
+
+              <CardFooter className="p-6 pt-0 border-t border-border/50">
+                <Button variant="ghost" asChild className="w-full group/btn">
+                  <Link href={project.githubUrl} target="_blank" className="flex items-center justify-between">
+                    <span className="flex items-center gap-2">
+                      <Github className="h-4 w-4" />
+                      View on GitHub
+                    </span>
+                    <ExternalLink className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                  </Link>
+                </Button>
               </CardFooter>
             </Card>
           ))}
