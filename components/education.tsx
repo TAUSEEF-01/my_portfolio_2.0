@@ -12,7 +12,7 @@ export function Education() {
       cgpa: "To be determined",
       location: "Dhaka, Bangladesh",
       icon: GraduationCap,
-      highlights: ["Current CGPA: 3.62/4.00", "Expected graduation: 2026"],
+      highlights: ["Current CGPA: To be determined", "Expected graduation: 2026"],
     },
     {
       institution: "Dhaka College",
