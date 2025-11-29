@@ -5,22 +5,22 @@ import { Award } from "lucide-react";
 export function Certificates() {
   const certificates = [
     {
-      title: "BUP CTF 2025",
+      title: "DIU CTF 2025",
       image: "/Certificates/BUP_CTF_2025.png",
       description: "Capture The Flag Competition",
     },
     {
-      title: "Certificate 1",
+      title: "AI Fiction",
       image: "/Certificates/photo_2025-11-29_15-20-57.jpg",
       description: "Achievement Certificate",
     },
     {
-      title: "Certificate 2",
+      title: "BUP CTF 2025",
       image: "/Certificates/photo_2025-11-29_15-23-13.jpg",
       description: "Achievement Certificate",
     },
     {
-      title: "Certificate 3",
+      title: "API Avengers",
       image: "/Certificates/photo_2025-11-29_15-23-17.jpg",
       description: "Achievement Certificate",
     },
