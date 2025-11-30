@@ -66,7 +66,8 @@ export function About() {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+          {/* <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent"> */}
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
             About Me
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
@@ -78,62 +79,73 @@ export function About() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-start mb-20">
-          {/* Highlights Section */}
-          <div className="space-y-8">
-            <h3 className="text-2xl font-semibold mb-8 text-center lg:text-left">
-              What I Do
-            </h3>
-            <div className="grid gap-6">
-              {highlights.map((highlight, index) => (
-                <Card
-                  key={index}
-                  className="group hover:shadow-lg transition-all duration-300 border-l-4 border-l-primary/50 hover:border-l-primary"
-                >
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                        <highlight.icon className="w-6 h-6 text-primary" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-lg mb-2">
-                          {highlight.title}
-                        </h4>
-                        <p className="text-muted-foreground">
-                          {highlight.description}
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+        {/* What I Do Section - Side by Side Cards with Glow */}
+        <div className="mb-20">
+          <h3 className="text-2xl font-semibold mb-8 text-center">
+            What I Do
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {highlights.map((highlight, index) => (
+              <Card
+                key={index}
+                className="group relative overflow-hidden hover:shadow-2xl transition-all duration-500 border border-primary/20 hover:border-primary/50 bg-card/50 backdrop-blur-sm"
+              >
+                {/* Glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute -inset-1 bg-gradient-to-r from-primary/50 to-blue-500/50 rounded-lg blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
+                
+                <CardContent className="relative p-6 flex flex-col items-center text-center space-y-4">
+                  <div className="p-3 rounded-xl bg-gradient-to-br from-primary/20 to-blue-500/20 group-hover:from-primary/30 group-hover:to-blue-500/30 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
+                    <highlight.icon className="w-8 h-8 text-primary group-hover:text-blue-400 transition-colors" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">
+                      {highlight.title}
+                    </h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {highlight.description}
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
+        </div>
 
-          {/* Skills/Experience Section */}
-          <div className="space-y-8">
-            <h3 className="text-2xl font-semibold mb-8 text-center lg:text-left">
-              Experience & Skills
-            </h3>
-            <div className="space-y-6">
-              <div className="p-6 rounded-xl bg-card border shadow-sm">
-                <h4 className="font-semibold mb-2">Python AI Trainer</h4>
-                <p className="text-sm text-muted-foreground mb-3">
+        {/* Experience & Skills Section - Side by Side Cards with Glow */}
+        <div className="mb-20">
+          <h3 className="text-2xl font-semibold mb-8 text-center">
+            Experience & Skills
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <div className="group relative overflow-hidden p-6 rounded-xl bg-card/50 backdrop-blur-sm border border-primary/20 hover:border-primary/50 hover:shadow-2xl transition-all duration-500">
+              {/* Glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary/50 to-purple-500/50 rounded-xl blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
+              
+              <div className="relative">
+                <h4 className="font-semibold text-xl mb-2 group-hover:text-primary transition-colors">Python AI Trainer</h4>
+                <p className="text-sm text-muted-foreground mb-3 font-medium">
                   Professional Experience
                 </p>
-                <p className="text-muted-foreground">
-                  Training and fine-tuning AI models with expertise in Python
-                  development
+                <p className="text-muted-foreground leading-relaxed">
+                  Training and fine-tuning AI models with expertise in Python development
                 </p>
               </div>
-              <div className="p-6 rounded-xl bg-card border shadow-sm">
-                <h4 className="font-semibold mb-2">Competitive Programming</h4>
-                <p className="text-sm text-muted-foreground mb-3">
+            </div>
+
+            <div className="group relative overflow-hidden p-6 rounded-xl bg-card/50 backdrop-blur-sm border border-primary/20 hover:border-primary/50 hover:shadow-2xl transition-all duration-500">
+              {/* Glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/50 to-cyan-500/50 rounded-xl blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
+              
+              <div className="relative">
+                <h4 className="font-semibold text-xl mb-2 group-hover:text-primary transition-colors">Competitive Programming</h4>
+                <p className="text-sm text-muted-foreground mb-3 font-medium">
                   Codeforces Pupil | Codechef 3-Star
                 </p>
-                <p className="text-muted-foreground">
-                  Strong algorithmic problem-solving skills with contest
-                  achievements
+                <p className="text-muted-foreground leading-relaxed">
+                  Strong algorithmic problem-solving skills with contest achievements
                 </p>
               </div>
             </div>
@@ -142,7 +154,8 @@ export function About() {
 
         {/* Technologies Section - 3D Orb Style */}
         <div className="w-full">
-          <h3 className="text-3xl font-bold mb-3 text-center bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+          {/* <h3 className="text-3xl font-bold mb-3 text-center bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent"> */}
+          <h3 className="text-2xl font-semibold mb-8 text-center">
             Technologies I Work With
           </h3>
           <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto text-sm">

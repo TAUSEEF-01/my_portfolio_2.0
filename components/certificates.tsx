@@ -47,14 +47,14 @@ export function Certificates() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {certificates.map((cert, index) => (
             <Card
               key={index}
               className="overflow-hidden hover:shadow-2xl hover:shadow-amber-500/20 hover:-translate-y-3 transition-all duration-500 group border-2 hover:border-amber-500/50 bg-card/50 backdrop-blur-sm"
             >
               <CardContent className="p-0">
-                <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-muted to-muted/50">
+                <div className="relative aspect-[3/4] overflow-hidden bg-gradient-to-br from-muted to-muted/50">
                   <Image
                     src={cert.image}
                     alt={cert.title}
@@ -65,16 +65,16 @@ export function Certificates() {
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-0 group-hover:opacity-60 transition-opacity duration-500" />
                   
                   {/* Award icon overlay */}
-                  <div className="absolute top-4 right-4 p-3 bg-amber-500/90 rounded-full opacity-0 group-hover:opacity-100 transform group-hover:rotate-12 transition-all duration-500">
-                    <Award className="h-6 w-6 text-white" />
+                  <div className="absolute top-3 right-3 p-2 bg-amber-500/90 rounded-full opacity-0 group-hover:opacity-100 transform group-hover:rotate-12 transition-all duration-500">
+                    <Award className="h-5 w-5 text-white" />
                   </div>
                 </div>
-                <div className="p-6 bg-gradient-to-br from-card to-card/80">
-                  <h3 className="font-bold text-xl mb-2 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                <div className="p-4 bg-gradient-to-br from-card to-card/80">
+                  <h3 className="font-bold text-base mb-1 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors line-clamp-1">
                     {cert.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground flex items-center gap-2">
-                    <span className="w-2 h-2 bg-amber-500 rounded-full animate-pulse"></span>
+                  <p className="text-xs text-muted-foreground flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-amber-500 rounded-full animate-pulse"></span>
                     {cert.description}
                   </p>
                 </div>
