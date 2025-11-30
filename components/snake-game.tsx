@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Gamepad2, RotateCcw, Trophy } from "lucide-react";
+import { Gamepad2, RotateCcw, Trophy, ChevronUp, ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
 
 type Direction = "UP" | "DOWN" | "LEFT" | "RIGHT";
 type Position = { x: number; y: number };
@@ -269,6 +269,25 @@ export function SnakeGame() {
     setGameStarted(true);
   };
 
+  const handleDirectionChange = (newDirection: Direction) => {
+    if (!gameStarted || gameOver || isPaused) return;
+    
+    switch (newDirection) {
+      case "UP":
+        if (direction.current !== "DOWN") nextDirection.current = "UP";
+        break;
+      case "DOWN":
+        if (direction.current !== "UP") nextDirection.current = "DOWN";
+        break;
+      case "LEFT":
+        if (direction.current !== "RIGHT") nextDirection.current = "LEFT";
+        break;
+      case "RIGHT":
+        if (direction.current !== "LEFT") nextDirection.current = "RIGHT";
+        break;
+    }
+  };
+
   return (
     <section id="game" className="py-24 relative overflow-hidden">
       {/* Background effects - Static for performance */}
@@ -365,6 +384,55 @@ export function SnakeGame() {
                 )}
               </div>
 
+              {/* Mobile Controls */}
+              {gameStarted && !gameOver && (
+                <div className="mt-6 md:hidden">
+                  <div className="flex flex-col items-center gap-2">
+                    <Button
+                      onClick={() => handleDirectionChange("UP")}
+                      size="lg"
+                      variant="outline"
+                      className="w-16 h-16 p-0 bg-primary/10 hover:bg-primary/20 border-primary/50"
+                    >
+                      <ChevronUp className="h-8 w-8" />
+                    </Button>
+                    <div className="flex gap-2">
+                      <Button
+                        onClick={() => handleDirectionChange("LEFT")}
+                        size="lg"
+                        variant="outline"
+                        className="w-16 h-16 p-0 bg-primary/10 hover:bg-primary/20 border-primary/50"
+                      >
+                        <ChevronLeft className="h-8 w-8" />
+                      </Button>
+                      <Button
+                        onClick={() => handleDirectionChange("DOWN")}
+                        size="lg"
+                        variant="outline"
+                        className="w-16 h-16 p-0 bg-primary/10 hover:bg-primary/20 border-primary/50"
+                      >
+                        <ChevronDown className="h-8 w-8" />
+                      </Button>
+                      <Button
+                        onClick={() => handleDirectionChange("RIGHT")}
+                        size="lg"
+                        variant="outline"
+                        className="w-16 h-16 p-0 bg-primary/10 hover:bg-primary/20 border-primary/50"
+                      >
+                        <ChevronRight className="h-8 w-8" />
+                      </Button>
+                    </div>
+                    <Button
+                      onClick={() => setIsPaused((prev) => !prev)}
+                      variant="secondary"
+                      className="mt-2 w-32"
+                    >
+                      {isPaused ? "Resume" : "Pause"}
+                    </Button>
+                  </div>
+                </div>
+              )}
+
               <div className="mt-6 p-4 bg-muted/50 rounded-lg">
                 <h4 className="font-semibold mb-3 flex items-center gap-2">
                   <Gamepad2 className="h-5 w-5 text-primary" />
@@ -388,6 +456,9 @@ export function SnakeGame() {
                     <span className="text-muted-foreground">+10 Points</span>
                   </div>
                 </div>
+                <p className="text-xs text-muted-foreground mt-3 md:hidden">
+                  💡 Use the buttons above to control the snake on mobile
+                </p>
               </div>
             </CardContent>
           </Card>

@@ -55,13 +55,13 @@ export function Certificates() {
             >
               <CardContent className="p-0">
                 <div className="relative w-full overflow-hidden bg-gradient-to-br from-muted to-muted/50">
-                  {/* Mobile: show full image with proper aspect ratio */}
-                  <div className="relative w-full aspect-[3/4] lg:aspect-[3/4]">
+                  {/* Show full certificate with proper aspect ratio */}
+                  <div className="relative w-full aspect-[3/4]">
                     <Image
                       src={cert.image}
                       alt={cert.title}
                       fill
-                      className="object-contain lg:object-cover group-hover:scale-105 lg:group-hover:scale-110 lg:group-hover:rotate-1 transition-all duration-700"
+                      className="object-contain group-hover:scale-105 transition-all duration-700"
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     />
                   </div>
