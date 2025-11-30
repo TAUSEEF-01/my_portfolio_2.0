@@ -66,7 +66,8 @@ export function Hero() {
 
       <div className="container mx-auto px-4 relative z-[5]">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className="space-y-8">
+          {/* Desktop Text Content - Hidden on mobile */}
+          <div className="hidden lg:block space-y-8">
             <div className="space-y-6">
               {/* Greeting Badge */}
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm shadow-sm">
@@ -133,7 +134,8 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="flex justify-center lg:justify-end">
+          {/* Desktop Profile with Laser & Orb - Hidden on mobile */}
+          <div className="hidden lg:flex justify-center lg:justify-end">
             <div className="relative w-[400px] h-[400px] flex items-center justify-center">
               {/* Laser Flow positioned directly on profile - touching the orb */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-30">
@@ -192,13 +194,114 @@ export function Hero() {
               </div>
             </div>
           </div>
+
+          {/* Mobile Layout - Visible only on mobile */}
+          <div className="lg:hidden flex flex-col items-center text-center space-y-8 w-full">
+            {/* Mobile Profile Image with Orb */}
+            <div className="relative w-[280px] h-[280px] sm:w-[300px] sm:h-[300px] flex items-center justify-center">
+              {/* Profile Image - base layer */}
+              <div className="absolute inset-0 flex items-center justify-center z-[10]">
+                <div className="relative group">
+                  {/* Glow behind image */}
+                  <div className="absolute -inset-1 bg-gradient-to-r from-primary to-blue-500 rounded-full blur opacity-60"></div>
+                  {/* Image */}
+                  <div className="relative w-56 h-56 sm:w-60 sm:h-60 rounded-full overflow-hidden shadow-2xl" style={{
+                    boxShadow: '0 0 0 4px rgba(var(--background), 0.8), 0 25px 50px -12px rgba(0, 0, 0, 0.25)'
+                  }}>
+                    <Image
+                      src={profileImage}
+                      alt="Md. Tauseef Ur Rahman - Computer Science Student & Developer"
+                      width={320}
+                      height={320}
+                      className="object-cover w-full h-full"
+                      priority
+                    />
+                  </div>
+                  {/* Decorative glow */}
+                  <div className="absolute -z-10 top-4 left-4 w-56 h-56 sm:w-60 sm:h-60 rounded-full bg-gradient-to-br from-primary/15 to-blue-500/15 blur-xl"></div>
+                </div>
+              </div>
+              
+              {/* Orb effect for mobile - on top layer with mix-blend-mode */}
+              {showOrb && (
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-[50] scale-[0.7090] sm:scale-[0.7590] -translate-x-11 -translate-y-11 sm:-translate-x-4 sm:-translate-y-4 mix-blend-screen opacity-80">
+                  <Orb
+                    hoverIntensity={0.4}
+                    rotateOnHover={false}
+                    hue={0}
+                    forceHoverState={false}
+                  />
+                </div>
+              )}
+            </div>
+
+            {/* Mobile Text Content */}
+            <div className="space-y-6 px-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm shadow-sm">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
+                </span>
+                <span className="text-xs font-medium text-foreground">Available for opportunities</span>
+              </div>
+
+              <div>
+                <h1 className="text-2xl sm:text-3xl font-bold leading-tight" style={{ minHeight: "5rem" }}>
+                  <span className="block text-foreground mb-1 text-xl sm:text-2xl">Hi, I'm</span>
+                  <span className="block text-2xl sm:text-3xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 dark:from-primary dark:via-blue-500 dark:to-cyan-500">
+                    {displayed}
+                    {!animationComplete && <span className="animate-pulse">|</span>}
+                  </span>
+                </h1>
+              </div>
+
+              <div className="space-y-3">
+                <p className="text-base sm:text-lg font-medium text-foreground">
+                  Computer Science Student & Developer
+                </p>
+                <p className="text-xs sm:text-sm text-slate-700 dark:text-muted-foreground max-w-xl leading-relaxed mx-auto">
+                  Passionate about <span className="text-blue-600 dark:text-primary font-semibold">competitive programming</span>, 
+                  building <span className="text-blue-600 dark:text-primary font-semibold">full-stack applications</span>, 
+                  and solving complex problems with elegant solutions.
+                </p>
+                
+                <div className="flex flex-wrap gap-1.5 pt-2 justify-center">
+                  <Badge variant="secondary" className="px-2 py-1 text-[10px] font-medium hover:bg-primary/20 transition-colors shadow-sm bg-white/80 dark:bg-secondary">
+                    🏆 Codeforces Pupil
+                  </Badge>
+                  <Badge variant="secondary" className="px-2 py-1 text-[10px] font-medium hover:bg-primary/20 transition-colors shadow-sm bg-white/80 dark:bg-secondary">
+                    ⭐ Codechef 3-Star
+                  </Badge>
+                  <Badge variant="secondary" className="px-2 py-1 text-[10px] font-medium hover:bg-primary/20 transition-colors shadow-sm bg-white/80 dark:bg-secondary">
+                    🤖 Python AI Trainer
+                  </Badge>
+                  <Badge variant="secondary" className="px-2 py-1 text-[10px] font-medium hover:bg-primary/20 transition-colors shadow-sm bg-white/80 dark:bg-secondary">
+                    🎓 University of Dhaka
+                  </Badge>
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-2 pt-2">
+                <Button asChild size="lg" className="group text-xs px-4 py-4 shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40 transition-all">
+                  <Link href="#portfolio">
+                    View My Work
+                    <ArrowDown className="ml-2 h-3 w-3 group-hover:translate-y-1 transition-transform" />
+                  </Link>
+                </Button>
+                <Button variant="outline" size="lg" asChild className="text-xs px-4 py-4 border-2 hover:bg-primary/5">
+                  <Link href="https://drive.google.com/file/d/1Y2lnExWPWTl--QUrokcDMKWDaA6wNhJY/view?usp=sharing" target="_blank">
+                    <Download className="mr-2 h-3 w-3" />
+                    Download Resume
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Enhanced gradient overlay - minimal to show laser */}
       <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/10 to-background dark:from-background/60 dark:via-background/20 dark:to-background pointer-events-none z-[3]" />
-      
-
     </section>
   );
 }

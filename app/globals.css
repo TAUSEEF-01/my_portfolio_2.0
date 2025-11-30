@@ -125,6 +125,16 @@ html {
   background: hsl(var(--primary) / 0.5);
 }
 
+/* Hide scrollbar for mobile navigation */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 /* Prose styles for blog content */
 .prose {
   @apply max-w-none;

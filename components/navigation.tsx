@@ -73,11 +73,11 @@ function NavBar({ items, className }: NavBarProps) {
   return (
     <div
       className={cn(
-        "fixed top-4 left-1/2 -translate-x-1/2 z-40 sm:top-6",
+        "fixed top-2 left-1/2 -translate-x-1/2 z-[60] sm:top-4 lg:top-6 w-[95vw] max-w-[380px] sm:max-w-none sm:w-auto",
         className
       )}
     >
-      <div className="flex items-center gap-2 bg-background/80 border border-border backdrop-blur-lg py-1 px-1 rounded-full shadow-lg">
+      <div className="flex items-center justify-center gap-1 sm:gap-2 bg-background/80 border border-border backdrop-blur-lg py-1 px-1 sm:px-1.5 rounded-full shadow-lg overflow-x-auto scrollbar-hide">
         {items.map((item) => {
           const Icon = item.icon;
           const isActive = activeTab === item.name;
@@ -88,14 +88,14 @@ function NavBar({ items, className }: NavBarProps) {
               href={item.url}
               onClick={() => setActiveTab(item.name)}
               className={cn(
-                "relative cursor-pointer text-sm font-semibold px-4 py-2 rounded-full transition-colors",
+                "relative cursor-pointer text-sm font-semibold px-2 py-1.5 sm:px-3 sm:py-2 lg:px-4 lg:py-2 rounded-full transition-colors flex-shrink-0",
                 "text-foreground/80 hover:text-primary",
                 isActive && "bg-muted text-primary"
               )}
             >
               <span className="hidden lg:inline">{item.name}</span>
               <span className="lg:hidden">
-                <Icon size={18} strokeWidth={2.5} />
+                <Icon size={16} strokeWidth={2.5} className="sm:w-[18px] sm:h-[18px]" />
               </span>
 
               {isActive && (
@@ -109,10 +109,10 @@ function NavBar({ items, className }: NavBarProps) {
                     damping: 30,
                   }}
                 >
-                  <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-primary rounded-t-full">
-                    <div className="absolute w-12 h-6 bg-primary/20 rounded-full blur-md -top-2 -left-2" />
-                    <div className="absolute w-8 h-6 bg-primary/20 rounded-full blur-md -top-1" />
-                    <div className="absolute w-4 h-4 bg-primary/20 rounded-full blur-sm top-0 left-2" />
+                  <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-6 h-1 sm:w-8 sm:h-1 bg-primary rounded-t-full">
+                    <div className="absolute w-8 h-4 sm:w-12 sm:h-6 bg-primary/20 rounded-full blur-md -top-1 -left-1 sm:-top-2 sm:-left-2" />
+                    <div className="absolute w-6 h-4 sm:w-8 sm:h-6 bg-primary/20 rounded-full blur-md -top-0.5 sm:-top-1" />
+                    <div className="absolute w-3 h-3 sm:w-4 sm:h-4 bg-primary/20 rounded-full blur-sm top-0 left-1.5 sm:left-2" />
                   </div>
                 </motion.div>
               )}
@@ -147,19 +147,19 @@ export function Navigation() {
     <>
       <NavBar items={navItems} />
 
-      {/* Theme toggle button - positioned separately */}
+      {/* Theme toggle button - positioned separately with mobile optimization */}
       {mounted && (
-        <div className="fixed top-4 right-4 z-50">
+        <div className="fixed top-2 right-2 sm:top-4 sm:right-4 z-[60]">
           <Button
             variant="ghost"
             size="icon"
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="bg-background/80 backdrop-blur-md border border-border rounded-full"
+            className="bg-background/80 backdrop-blur-md border border-border rounded-full w-9 h-9 sm:w-10 sm:h-10"
           >
             {theme === "dark" ? (
-              <Sun className="h-5 w-5" />
+              <Sun className="h-4 w-4 sm:h-5 sm:w-5" />
             ) : (
-              <Moon className="h-5 w-5" />
+              <Moon className="h-4 w-4 sm:h-5 sm:w-5" />
             )}
           </Button>
         </div>
