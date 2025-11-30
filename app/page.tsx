@@ -14,27 +14,29 @@ import GhostCursor from "@/components/GhostCursor";
 export default function Home() {
   return (
     <>
-      <div className="fixed inset-0 w-full h-full" style={{ zIndex: 0 }}>
+      <div className="fixed inset-0 w-full h-full pointer-events-none" style={{ zIndex: 1 }}>
         <GhostCursor
           color="#a78bfa"
-          brightness={1.5}
-          bloomStrength={0.2}
-          trailLength={40}
+          brightness={1.2}
+          bloomStrength={0.15}
+          trailLength={35}
           inertia={0.6}
           mixBlendMode="screen"
-          zIndex={0}
+          zIndex={1}
         />
       </div>
-      <main className="min-h-screen relative" style={{ zIndex: 1 }}>
+      <main className="min-h-screen relative">
         <Hero />
-        <About />
-        <Education />
-        <Achievements />
-        <LeetCodeStats />
-        <Certificates />
-        <Portfolio />
-        <SnakeGame />
-        <Contact />
+        <div className="relative z-[10]">
+          <About />
+          <Education />
+          <Achievements />
+          <LeetCodeStats />
+          <Certificates />
+          <Portfolio />
+          <SnakeGame />
+          <Contact />
+        </div>
       </main>
     </>
   );

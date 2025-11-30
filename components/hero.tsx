@@ -64,7 +64,7 @@ export function Hero() {
       <div className="absolute top-20 -left-20 w-96 h-96 bg-gradient-to-br from-primary/20 to-blue-500/20 rounded-full blur-3xl opacity-50 z-0" />
       <div className="absolute bottom-20 -right-20 w-96 h-96 bg-gradient-to-br from-purple-500/15 to-pink-500/15 rounded-full blur-3xl opacity-40 z-0" />
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-[5]">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-8">
             <div className="space-y-6">
@@ -196,7 +196,7 @@ export function Hero() {
       </div>
 
       {/* Enhanced gradient overlay - minimal to show laser */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/10 to-background dark:from-background/60 dark:via-background/20 dark:to-background pointer-events-none z-[1]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/10 to-background dark:from-background/60 dark:via-background/20 dark:to-background pointer-events-none z-[3]" />
       
 
     </section>
